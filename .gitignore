@@ -7,3 +7,9 @@ terraform.tfstate.*
 __pycache__/
 *.pyc
 .DS_Store
+# Terraform variable and crash files
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+*.tfplan
