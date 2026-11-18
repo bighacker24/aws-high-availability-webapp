@@ -29,3 +29,13 @@ The free S3 gateway endpoint stays on permanently, so S3 traffic never uses the 
 - Switch off: no OS updates and no Systems Manager access. S3 still works.
 - Safeguards: switch defaults to false; monthly budget alert; end-of-session check.
 - Production would use one NAT per AZ, each with its own route table.
+
+## Update 2026-11-17: measured results
+- Package installs do not need the NAT. With enable_nat = false, both app
+  servers installed nginx from the Amazon Linux repositories through the free
+  S3 gateway endpoint (dnf "Complete!" about 37 seconds after boot).
+- The NAT is therefore only needed for Session Manager access and for software
+  outside Amazon's repositories.
+- Switch-on time: the NAT took 84 seconds to create, and the Systems Manager
+  agents registered about 2 minutes after the route existed.
+- Decision unchanged: Accepted.
