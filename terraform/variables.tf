@@ -32,3 +32,9 @@ variable "app_desired_capacity" {
     error_message = "app_desired_capacity must be between 0 and 4."
   }
 }
+
+variable "enable_alb" {
+  description = "Create the Application Load Balancer. Bills hourly while it exists."
+  type        = bool
+  default     = false
+}
